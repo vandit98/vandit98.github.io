@@ -362,6 +362,92 @@
     }
     .oss-card .oss-link:hover { color: var(--accent-l); }
 
+    /* ── Hackathons ───────────────────────────────────── */
+    .hack-filter {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+    }
+    .hack-filter button {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text-dim); padding: 6px 14px; border-radius: 8px;
+      font-family: var(--mono); font-size: .75rem; cursor: pointer;
+      transition: all .2s;
+    }
+    .hack-filter button.active, .hack-filter button:hover {
+      background: var(--accent-bg); border-color: rgba(99,102,241,.3);
+      color: var(--accent-l);
+    }
+    .hackathon-list { display: flex; flex-direction: column; gap: 12px; }
+    .hack-item {
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; gap: 20px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px;
+      transition: all .3s;
+    }
+    .hack-item:hover { border-color: rgba(99,102,241,.3); transform: translateX(4px); }
+    .hack-medal {
+      display: flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 50%;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .hack-medal.gold    { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #422006; }
+    .hack-medal.silver  { background: linear-gradient(135deg, #d1d5db, #9ca3af); color: #1f2937; }
+    .hack-medal.bronze  { background: linear-gradient(135deg, #d97706, #92400e); color: #fff7ed; }
+    .hack-medal.finalist{ background: var(--accent-bg); color: var(--accent-l); border: 1px solid rgba(99,102,241,.3); }
+
+    .hack-body .hack-position {
+      font-family: var(--mono); font-size: .7rem;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 4px; font-weight: 600;
+    }
+    .hack-body .hack-position.gold    { color: #fbbf24; }
+    .hack-body .hack-position.silver  { color: #d1d5db; }
+    .hack-body .hack-position.bronze  { color: #f59e0b; }
+    .hack-body .hack-position.finalist{ color: var(--accent-l); }
+    .hack-body h4 { color: #fff; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .hack-body p { color: var(--text-dim); font-size: .82rem; line-height: 1.5; }
+    .hack-meta {
+      text-align: right; flex-shrink: 0;
+    }
+    .hack-meta .date {
+      font-family: var(--mono); font-size: .75rem; color: var(--text-dim);
+    }
+    .hack-meta .prize {
+      font-size: .85rem; color: var(--green); font-weight: 600; margin-top: 2px;
+    }
+
+    @media (max-width: 700px) {
+      .hack-item { grid-template-columns: auto 1fr; grid-template-rows: auto auto; }
+      .hack-meta { grid-column: 1 / -1; text-align: left; padding-top: 4px; }
+    }
+
+    /* ── Certificates ─────────────────────────────────── */
+    .cert-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .cert-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+      transition: all .3s; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .cert-card:hover { border-color: rgba(99,102,241,.3); transform: translateY(-2px); }
+    .cert-icon {
+      font-size: 1.6rem; flex-shrink: 0;
+      width: 44px; height: 44px; display: flex;
+      align-items: center; justify-content: center;
+      background: var(--accent-bg); border-radius: 10px;
+    }
+    .cert-body h4 { color: #fff; font-size: .9rem; margin-bottom: 4px; font-weight: 600; }
+    .cert-body p { color: var(--text-dim); font-size: .75rem; line-height: 1.5; }
+
+    .cert-cta {
+      text-align: center; margin-top: 32px;
+      padding: 24px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .cert-cta p { color: var(--text-dim); font-size: .9rem; margin-bottom: 16px; }
+
     /* ── Achievements ─────────────────────────────────── */
     .achievements-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -447,7 +533,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#kaggle">Kaggle</a></li>
+        <li><a href="#hackathons">Hackathons</a></li>
         <li><a href="#opensource">Open Source</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -478,9 +566,9 @@
           </a>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><div class="number">1+</div><div class="label">Years Experience</div></div>
-          <div class="hero-stat"><div class="number">10x</div><div class="label">Hackathon Wins</div></div>
+          <div class="hero-stat"><div class="number">10+</div><div class="label">Hackathon Wins &amp; Placements</div></div>
           <div class="hero-stat"><div class="number">3x</div><div class="label">Kaggle Expert</div></div>
+          <div class="hero-stat"><div class="number">13+</div><div class="label">OSS PRs Merged</div></div>
           <div class="hero-stat"><div class="number">60+</div><div class="label">GitHub Repos</div></div>
         </div>
       </div>
@@ -823,11 +911,31 @@
       <div class="section-label">Kaggle</div>
       <h2 class="section-title">Kaggle Profile &amp; Achievements</h2>
 
-      <div class="kaggle-overview fade-up">
-        <div class="kaggle-stat-card">
-          <div class="stat-number" style="color: var(--cyan);">3x</div>
-          <div class="stat-label">Expert Tier</div>
+      <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 32px; font-size: .95rem; line-height: 1.7;">
+        Reached <strong style="color:#fff">Expert Tier in 3 categories</strong> on Kaggle &mdash;
+        the platform's top ~5% of users &mdash; across Notebooks, Datasets, and Competitions.
+        Published 50+ notebooks and 28 datasets that have collectively earned 171 upvotes from the community.
+      </p>
+
+      <div class="kaggle-overview fade-up" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+        <div class="kaggle-stat-card" style="background: linear-gradient(135deg, rgba(6,182,212,.08), rgba(6,182,212,.02)); border-color: rgba(6,182,212,.2);">
+          <div style="font-size: 1.6rem; margin-bottom: 6px;">&#10070;</div>
+          <div class="stat-number" style="color: var(--cyan); font-size: 1.1rem;">Expert &middot; Notebooks</div>
+          <div class="stat-label" style="margin-top: 6px;">50+ notebooks published</div>
         </div>
+        <div class="kaggle-stat-card" style="background: linear-gradient(135deg, rgba(6,182,212,.08), rgba(6,182,212,.02)); border-color: rgba(6,182,212,.2);">
+          <div style="font-size: 1.6rem; margin-bottom: 6px;">&#128450;</div>
+          <div class="stat-number" style="color: var(--cyan); font-size: 1.1rem;">Expert &middot; Datasets</div>
+          <div class="stat-label" style="margin-top: 6px;">28 datasets created</div>
+        </div>
+        <div class="kaggle-stat-card" style="background: linear-gradient(135deg, rgba(6,182,212,.08), rgba(6,182,212,.02)); border-color: rgba(6,182,212,.2);">
+          <div style="font-size: 1.6rem; margin-bottom: 6px;">&#127942;</div>
+          <div class="stat-number" style="color: var(--cyan); font-size: 1.1rem;">Expert &middot; Competitions</div>
+          <div class="stat-label" style="margin-top: 6px;">ARC-AGI, CIBMTR, ICR &amp; more</div>
+        </div>
+      </div>
+
+      <div class="kaggle-overview fade-up" style="margin-top: 16px;">
         <div class="kaggle-stat-card">
           <div class="stat-number">50+</div>
           <div class="stat-label">Notebooks Published</div>
@@ -838,7 +946,11 @@
         </div>
         <div class="kaggle-stat-card">
           <div class="stat-number">171</div>
-          <div class="stat-label">Total Upvotes</div>
+          <div class="stat-label">Community Upvotes</div>
+        </div>
+        <div class="kaggle-stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Competitions Entered</div>
         </div>
       </div>
 
@@ -884,6 +996,151 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hackathons ──────────────────────────────── -->
+  <section id="hackathons">
+    <div class="container">
+      <div class="section-label">Hackathons</div>
+      <h2 class="section-title">10x Hackathon Winner</h2>
+      <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 32px; font-size: .95rem; line-height: 1.7;">
+        Participated in <strong style="color:#fff">100+ hackathons</strong> across India and internationally,
+        winning prizes and placements at events hosted by IITs, IIITs, NITs, and Major League Hacking.
+        Total prize winnings exceed <strong style="color:#fff">&#8377;1,00,000</strong>.
+      </p>
+
+      <div class="hackathon-list fade-up">
+
+        <!-- Winners -->
+        <div class="hack-item">
+          <div class="hack-medal gold">&#127942;</div>
+          <div class="hack-body">
+            <div class="hack-position gold">Winner</div>
+            <h4>INTERRUPT INNOVATE ITERATE (III) Hackathon</h4>
+            <p>Gravity &mdash; IIIT Allahabad</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Jan 2023</div>
+            <div class="prize">&#8377;40,000</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal gold">&#127942;</div>
+          <div class="hack-body">
+            <div class="hack-position gold">Winner</div>
+            <h4>ACM HackCON</h4>
+            <p>Guru Gobind Singh Indraprastha University (GGSIPU)</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Jun 2023</div>
+            <div class="prize">&#8377;30,000</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal gold">&#127942;</div>
+          <div class="hack-body">
+            <div class="hack-position gold">Winner</div>
+            <h4>Hack-AI-Thon</h4>
+            <p>Dept. of AI &amp; Data Science &mdash; Karpagam College of Engineering</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Jun 2023</div>
+            <div class="prize">&#8377;20,000</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal gold">&#127942;</div>
+          <div class="hack-body">
+            <div class="hack-position gold">Winner &mdash; Assam Police Track</div>
+            <h4>Ethos Hackathon &mdash; Smart Naka</h4>
+            <p>IIT Guwahati &middot; AI-powered traffic safety &amp; criminal tracking system</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Jan 2023</div>
+            <div class="prize">&#8377;20,000</div>
+          </div>
+        </div>
+
+        <!-- Runner-Ups -->
+        <div class="hack-item">
+          <div class="hack-medal silver">&#129352;</div>
+          <div class="hack-body">
+            <div class="hack-position silver">1st Runner-up</div>
+            <h4>HackNITR 5.0</h4>
+            <p>GDSC NIT Rourkela &amp; Major League Hacking</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Mar 2024</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal bronze">&#129353;</div>
+          <div class="hack-body">
+            <div class="hack-position bronze">2nd Runner-up</div>
+            <h4>Opinhacks</h4>
+            <p>Major League Hacking</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Oct 2023</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal bronze">&#129353;</div>
+          <div class="hack-body">
+            <div class="hack-position bronze">2nd Runner-up</div>
+            <h4>Hack The Space</h4>
+            <p>Shri Shankracharya Technical Campus</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Sep 2023</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal bronze">&#129353;</div>
+          <div class="hack-body">
+            <div class="hack-position bronze">2nd Runner-up &mdash; Autonomous Explorer</div>
+            <h4>Hack The Chain</h4>
+            <p>IIIT Kota &middot; Deep RL-powered autonomous rover simulation</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Apr 2023</div>
+            <div class="prize">&#8377;4,000</div>
+          </div>
+        </div>
+
+        <!-- Finalists -->
+        <div class="hack-item">
+          <div class="hack-medal finalist">&#127894;</div>
+          <div class="hack-body">
+            <div class="hack-position finalist">Top 15</div>
+            <h4>Hackodisha 2.0</h4>
+            <p>Webwiz NIT Rourkela</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Sep 2022</div>
+          </div>
+        </div>
+
+        <div class="hack-item">
+          <div class="hack-medal finalist">&#127894;</div>
+          <div class="hack-body">
+            <div class="hack-position finalist">Main Track Finalist</div>
+            <h4>Hackmol 3.0</h4>
+            <p>GDSC NIT Jalandhar</p>
+          </div>
+          <div class="hack-meta">
+            <div class="date">Feb 2022</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -976,6 +1233,126 @@
           </a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Certificates ─────────────────────────────── -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-label">Certificates</div>
+      <h2 class="section-title">Certificates &amp; Credentials</h2>
+      <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 32px; font-size: .95rem; line-height: 1.7;">
+        A collection of hackathon certificates, internship completion letters, and course credentials
+        from events hosted by IITs, IIITs, NITs, Microsoft, and industry partners.
+      </p>
+
+      <div class="cert-grid fade-up">
+
+        <div class="cert-card">
+          <div class="cert-icon">&#127942;</div>
+          <div class="cert-body">
+            <h4>Ethos Hackathon &mdash; Winner</h4>
+            <p>IIT Guwahati &middot; Smart Naka Track &middot; Jan 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#127942;</div>
+          <div class="cert-body">
+            <h4>Hack The Chain &mdash; 2nd Runner-up</h4>
+            <p>IIIT Kota &middot; Autonomous Explorer &middot; Apr 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#127942;</div>
+          <div class="cert-body">
+            <h4>SmartLift Hackathon</h4>
+            <p>ML-Powered Fitness Coach Project &middot; Feb 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#127912;</div>
+          <div class="cert-body">
+            <h4>ShutterStories</h4>
+            <p>Design &amp; Creative Competition &middot; Sep 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128188;</div>
+          <div class="cert-body">
+            <h4>Swiggy &mdash; Internship Completion</h4>
+            <p>Official completion letter from Swiggy</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128188;</div>
+          <div class="cert-body">
+            <h4>FutureSmart AI &mdash; Internship</h4>
+            <p>AI/ML Internship Certificate &middot; Nov 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128187;</div>
+          <div class="cert-body">
+            <h4>Hashmark Certificate</h4>
+            <p>Technical Credential &middot; Dec 2025</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#10070;</div>
+          <div class="cert-body">
+            <h4>Intro to Machine Learning</h4>
+            <p>Kaggle Learn Course Completion &middot; Sep 2022</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#10070;</div>
+          <div class="cert-body">
+            <h4>Machine Learning Certificate</h4>
+            <p>Foundational ML Coursework &middot; Jul 2022</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128220;</div>
+          <div class="cert-body">
+            <h4>Course Certificate &mdash; ML/AI Specialization</h4>
+            <p>Completed May 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128104;&#8205;&#128188;</div>
+          <div class="cert-body">
+            <h4>Hired Certificate</h4>
+            <p>Professional credential &middot; Jun 2022</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">&#128202;</div>
+          <div class="cert-body">
+            <h4>Additional Course Credentials</h4>
+            <p>Multiple certificates &middot; 2022&ndash;2023</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cert-cta">
+        <p>All certificates are available in the shared Drive folder.</p>
+        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1xlfJZxt1RliDvKqVlCseHV4Ll-7Kteux?usp=sharing" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View all certificates
+        </a>
       </div>
     </div>
   </section>
