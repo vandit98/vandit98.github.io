@@ -324,6 +324,33 @@
     .kaggle-notebooks h3 {
       font-size: 1rem; color: #fff; margin-bottom: 16px;
     }
+    .comp-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .comp-item {
+      display: grid; grid-template-columns: 1fr auto auto;
+      gap: 16px; align-items: center;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px;
+      transition: border-color .3s;
+    }
+    .comp-item:hover { border-color: rgba(99,102,241,.3); }
+    .comp-title { font-size: .88rem; color: var(--text); font-weight: 500; }
+    .comp-title .comp-sub { display: block; color: var(--text-dim); font-size: .75rem; font-weight: 400; margin-top: 2px; }
+    .comp-rank {
+      font-family: var(--mono); font-size: .78rem; padding: 4px 10px;
+      border-radius: 6px; text-align: center;
+    }
+    .comp-rank.top5   { background: rgba(251,191,36,.1);  color: #fbbf24; border: 1px solid rgba(251,191,36,.25); }
+    .comp-rank.top10  { background: rgba(34,197,94,.1);   color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
+    .comp-rank.top25  { background: rgba(6,182,212,.1);   color: #06b6d4; border: 1px solid rgba(6,182,212,.25); }
+    .comp-rank.top50  { background: var(--accent-bg);     color: var(--accent-l); border: 1px solid rgba(99,102,241,.2); }
+    .comp-pct {
+      font-family: var(--mono); font-size: .7rem; color: var(--text-dim);
+    }
+
+    @media (max-width: 700px) {
+      .comp-item { grid-template-columns: 1fr auto; }
+      .comp-pct { grid-column: 2; text-align: right; }
+    }
     .notebook-list { display: flex; flex-direction: column; gap: 10px; }
     .notebook-item {
       display: flex; align-items: center; justify-content: space-between;
@@ -912,9 +939,11 @@
       <h2 class="section-title">Kaggle Profile &amp; Achievements</h2>
 
       <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 32px; font-size: .95rem; line-height: 1.7;">
-        Reached <strong style="color:#fff">Expert Tier in 3 categories</strong> on Kaggle &mdash;
-        the platform's top ~5% of users &mdash; across Notebooks, Datasets, and Competitions.
-        Published 50+ notebooks and 28 datasets that have collectively earned 171 upvotes from the community.
+        Global rank <strong style="color:#fff">1,408 out of 203,634</strong> (top 0.7%) competitors.
+        Reached <strong style="color:#fff">Expert Tier in 3 categories</strong> &mdash;
+        Notebooks, Datasets, and Competitions &mdash; with
+        <strong style="color:#fff">49 solo competitions</strong> entered and multiple top-5% finishes
+        on featured code competitions.
       </p>
 
       <div class="kaggle-overview fade-up" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
@@ -937,25 +966,75 @@
 
       <div class="kaggle-overview fade-up" style="margin-top: 16px;">
         <div class="kaggle-stat-card">
-          <div class="stat-number">50+</div>
-          <div class="stat-label">Notebooks Published</div>
+          <div class="stat-number" style="color: var(--pink);">#1,408</div>
+          <div class="stat-label">of 203,634 &middot; Top 0.7%</div>
         </div>
         <div class="kaggle-stat-card">
-          <div class="stat-number">28</div>
-          <div class="stat-label">Datasets Created</div>
+          <div class="stat-number">50</div>
+          <div class="stat-label">Competitions Entered</div>
+        </div>
+        <div class="kaggle-stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Notebooks Published</div>
         </div>
         <div class="kaggle-stat-card">
           <div class="stat-number">171</div>
           <div class="stat-label">Community Upvotes</div>
         </div>
-        <div class="kaggle-stat-card">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Competitions Entered</div>
-        </div>
       </div>
 
       <div class="kaggle-notebooks fade-up">
-        <h3>Top Upvoted Notebooks</h3>
+        <h3>Notable Competition Rankings</h3>
+        <div class="comp-list">
+
+          <a href="https://www.kaggle.com/competitions/leash-BELKA" target="_blank" class="comp-item" style="text-decoration:none;">
+            <div class="comp-title">
+              NeurIPS 2024 &mdash; Predict New Medicines with BELKA
+              <span class="comp-sub">Small molecule&ndash;protein interactions &middot; 1,950 teams</span>
+            </div>
+            <span class="comp-rank top5">37 / 1,950</span>
+            <span class="comp-pct">Top 2%</span>
+          </a>
+
+          <a href="https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers" target="_blank" class="comp-item" style="text-decoration:none;">
+            <div class="comp-title">
+              Enefit &mdash; Predict Energy Behavior of Prosumers
+              <span class="comp-sub">Code competition &middot; 2,731 teams</span>
+            </div>
+            <span class="comp-rank top5">131 / 2,731</span>
+            <span class="comp-pct">Top 5%</span>
+          </a>
+
+          <a href="https://www.kaggle.com/competitions/learning-agency-lab-automated-essay-scoring-2" target="_blank" class="comp-item" style="text-decoration:none;">
+            <div class="comp-title">
+              Learning Agency Lab &mdash; Automated Essay Scoring 2.0
+              <span class="comp-sub">Code competition &middot; 2,706 teams</span>
+            </div>
+            <span class="comp-rank top5">132 / 2,706</span>
+            <span class="comp-pct">Top 5%</span>
+          </a>
+
+          <a href="https://www.kaggle.com/competitions/uspto-explainable-ai" target="_blank" class="comp-item" style="text-decoration:none;">
+            <div class="comp-title">
+              USPTO &mdash; Explainable AI for Patent Professionals
+              <span class="comp-sub">Code competition &middot; 571 teams</span>
+            </div>
+            <span class="comp-rank top25">140 / 571</span>
+            <span class="comp-pct">Top 25%</span>
+          </a>
+
+          <a href="https://www.kaggle.com/competitions/linking-writing-processes-to-writing-quality" target="_blank" class="comp-item" style="text-decoration:none;">
+            <div class="comp-title">
+              Linking Writing Processes to Writing Quality
+              <span class="comp-sub">Code competition &middot; 1,876 teams</span>
+            </div>
+            <span class="comp-rank top25">279 / 1,876</span>
+            <span class="comp-pct">Top 15%</span>
+          </a>
+
+        </div>
+
+        <h3>Top Upvoted Notebooks &amp; Solutions</h3>
         <div class="notebook-list">
           <a href="https://www.kaggle.com/code/vandittyagi0909/single-layer-neural-network-scratch-code" target="_blank" class="notebook-item">
             <span class="nb-title">Single Layer Neural Network &mdash; Scratch Code</span>
@@ -988,6 +1067,22 @@
           <a href="https://www.kaggle.com/code/vandittyagi0909/coral-arc-agi-2-solution" target="_blank" class="notebook-item">
             <span class="nb-title">CORAL: ARC-AGI-2 Solution</span>
             <span class="nb-votes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg> 6</span>
+          </a>
+          <a href="https://www.kaggle.com/code/vandittyagi0909/0-692-cibmtr-weights-ranking-ensemble" target="_blank" class="notebook-item">
+            <span class="nb-title">CIBMTR &mdash; Weights Ranking Ensemble (0.692)</span>
+            <span class="nb-votes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg> Solution</span>
+          </a>
+          <a href="https://www.kaggle.com/code/vandittyagi0909/ariel-ensemble-of-solutions" target="_blank" class="notebook-item">
+            <span class="nb-title">Ariel &mdash; Ensemble of Solutions</span>
+            <span class="nb-votes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg> Solution</span>
+          </a>
+          <a href="https://www.kaggle.com/code/vandittyagi0909/loan-approval-ensemble-nn-xgb-lgbm-cat" target="_blank" class="notebook-item">
+            <span class="nb-title">Loan Approval &mdash; Ensemble (NN + XGB + LGBM + Cat)</span>
+            <span class="nb-votes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg> Solution</span>
+          </a>
+          <a href="https://www.kaggle.com/code/vandittyagi0909/eedi-qwen-2-5-32b-awq-two-time-retrieval" target="_blank" class="notebook-item">
+            <span class="nb-title">EEDI &mdash; Qwen 2.5 32B AWQ Two-Time Retrieval</span>
+            <span class="nb-votes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg> Solution</span>
           </a>
         </div>
         <div style="text-align:center; margin-top: 24px;">
